@@ -1,0 +1,12 @@
+/* Shared page grid: header content and every route share one pair of guides. */
+:root{--page-max:1600px;--page-gutter:28px;--page-edge:max(var(--page-gutter),calc((100vw - var(--page-max))/2 + var(--page-gutter)))}
+body>header,main#app{width:100%;max-width:var(--page-max);margin-left:auto;margin-right:auto;padding-left:var(--page-gutter);padding-right:var(--page-gutter);box-sizing:border-box}
+.topbar,.demo,body>footer{padding-left:var(--page-edge);padding-right:var(--page-edge)}
+main#app>.hero{width:100%;margin-left:0!important;margin-right:0!important;box-sizing:border-box}
+main#app>.detail{width:100%;max-width:none;margin-left:0;margin-right:0}
+main#app>.breadcrumb,main#app>.page-heading,main#app>.grid,main#app>.two-col,main#app>.prose,main#app>.panel{width:100%;max-width:none;box-sizing:border-box}
+main#app .grid>*,main#app .two-col>*{min-width:0}
+/* A readable text measure sits inside the shared full-width page shell. */
+main#app .prose p,main#app .detail>p{max-width:80ch}
+@media(max-width:1000px){:root{--page-gutter:24px}}
+@media(max-width:760px){:root{--page-gutter:18px}}

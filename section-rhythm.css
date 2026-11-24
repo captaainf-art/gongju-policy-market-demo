@@ -1,0 +1,28 @@
+/* V0.5: distinct section rhythm; preserve the shared horizontal guides. */
+main#app>.discovery,main#app>.recommendation-section,main#app>#portal-more,main#app>.portal-news{position:relative;isolation:isolate;margin:0;padding:48px 0}
+main#app>.discovery::before,main#app>.recommendation-section::before,main#app>#portal-more::before,main#app>.portal-news::before{content:"";position:absolute;z-index:-1;inset:0;border-top:1px solid #e3e8ed;border-bottom:1px solid #e3e8ed;pointer-events:none}
+main#app>.discovery::before{background:#f7f5f1;box-shadow:0 0 0 100vmax #f7f5f1;clip-path:inset(0 -100vmax)}
+main#app>.recommendation-section::before{background:#f0f4f8;box-shadow:0 0 0 100vmax #f0f4f8;clip-path:inset(0 -100vmax)}
+main#app>#portal-more::before{background:#fff}
+main#app>.portal-news::before{background:#f6f7f8;box-shadow:0 0 0 100vmax #f6f7f8;clip-path:inset(0 -100vmax)}
+main#app>.quick-services{margin:0!important;padding:24px 0;border:0}
+main#app>.summary{margin:28px 0;background:#fff;border:1px solid #d6e0eb;border-left:4px solid #718ba8;border-radius:12px}
+.recommendation-heading{background:transparent;border-radius:0;margin:0 0 20px;padding:0 190px 24px 0;min-height:110px;border-bottom:1px solid #d4dfe9}
+.recommendation-heading .section-art{bottom:8px}
+.recommendation-section .filters{border-top:0;margin:0 0 28px;padding:0 0 20px;border-bottom-color:#d4dfe9}
+.recommendation-section .filters button{background:white}
+.recommendation-section .filters button.active{background:#225eb2;color:white}
+.discovery>.row,#portal-more>.row{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid #dddfe2}
+.discovery-grid{margin-top:0}
+.discovery-card{background:#fff!important;border-color:#e0dfdb}
+main#app>.local{margin:36px 0;padding:30px 32px;background:#edf3ef;border:1px solid #d9e5dd;border-radius:16px}
+main#app>.local:after{border-color:#dce7df}
+.portal-news{gap:48px}
+.portal-news h2{margin-bottom:22px}
+.portal-news .intro-band{margin:0;background:white;border:1px solid #e0e5e9}
+/* Subpage section boundaries use the same restrained surfaces and separators. */
+.page-heading{background:#f3f6f9;box-shadow:0 0 0 100vmax #f3f6f9;clip-path:inset(0 -100vmax);padding-top:30px;padding-bottom:30px}
+.detail>.banner{margin-bottom:28px}
+.detail>details{background:#fff;border-bottom:1px solid #d8e0e8;padding:26px 0}
+.two-col>.panel{background:#f8fafb;border-color:#dce3ea}
+@media(max-width:760px){main#app>.discovery,main#app>.recommendation-section,main#app>#portal-more,main#app>.portal-news{padding:32px 0}.recommendation-heading{padding:0 100px 20px 0;min-height:100px}.recommendation-heading .section-art{right:-20px}.discovery>.row,#portal-more>.row{padding-bottom:18px;margin-bottom:20px}main#app>.local{padding:24px;margin:26px 0}.portal-news{gap:28px}.page-heading{padding-top:24px;padding-bottom:24px}}

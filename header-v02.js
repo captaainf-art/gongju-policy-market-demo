@@ -1,0 +1,17 @@
+const sharedTools=document.createElement('div');sharedTools.className='shared-tools';
+portalTopbar.append(sharedTools);
+const userTools=document.querySelector('.user-tools');
+userTools.querySelectorAll('a[href="#sitemap"],a[href="#accessibility"]').forEach(a=>sharedTools.append(a));
+sharedTools.insertAdjacentHTML('afterbegin','<a href="#guide">이용 안내</a><a href="#faq">자주 묻는 질문</a>');
+document.querySelector('header').append(userTools);
+const headerRender=render;
+render=function(){headerRender();const hero=app.querySelector('.hero');if(!hero)return;
+const search=hero.querySelector('#search');
+search.querySelector('button').textContent='통합검색';
+search.querySelector('input').placeholder='궁금한 혜택을 일상어로 검색하세요 · 월세, 취업, 농기계';
+const choices=[['youth','청년','독립·취업 준비'],['rural','농업인','농촌 생활·영농'],['family','부모·가족','주거·돌봄'],['business','소상공인','창업·가게 운영'],['senior','어르신','건강·이동']];
+search.insertAdjacentHTML('beforebegin',`<div class="persona-explore"><span>어떤 일상을 보내고 계세요?</span><div role="group" aria-label="생활 유형별 정책 탐색">${choices.map(([id,t,d])=>`<button type="button" data-life="${id}" aria-pressed="${state.persona===id}"><b>${t}</b><small>${d}</small></button>`).join('')}</div></div>`);
+search.insertAdjacentHTML('afterend',`<div class="search-suggestions"><span>많이 찾는 생활어</span>${[['월세','월세'],['취업 준비','취업'],['농기계','농기계'],['돌봄','돌봄'],['공주페이','공주페이']].map(([t,q])=>`<button type="button" data-word="${q}">#${t}</button>`).join('')}</div><p class="hero-help">생활 유형을 선택하거나 검색해 보세요. 상세 조건은 언제든 변경할 수 있어요.</p>`);
+hero.querySelectorAll('[data-life]').forEach(b=>b.onclick=()=>{const key=b.dataset.life;if(key==='youth'||key==='rural'){state.persona=key;state.query='';state.category='전체';persist();render();toast('생활 유형에 맞춰 추천 정책을 변경했습니다')}else location.hash='audience/'+key});
+hero.querySelectorAll('[data-word]').forEach(b=>b.onclick=()=>{search.querySelector('input').value=b.dataset.word;search.requestSubmit()});
+};render();
